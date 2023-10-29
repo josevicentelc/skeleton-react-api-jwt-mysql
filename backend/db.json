@@ -1,0 +1,57 @@
+[
+    {
+        "command" : "drop table user_books",
+        "order": 1,
+        "sql" : [
+            "DROP TABLE IF EXISTS `user_books`"
+        ]
+    },    
+    {
+        "command" : "drop table users",
+        "order": 2,
+        "sql" : [
+            "DROP TABLE IF EXISTS `users`"
+        ]
+    },    
+    {
+        "command" : "drop table books",
+        "order": 3,
+        "sql" : [
+            "DROP TABLE IF EXISTS `books`"
+        ]
+    },  
+    {
+        "command" : "Create users table",
+        "order": 1000,
+        "sql" : [
+            "CREATE TABLE `users` (",
+            "`id` int(11) NOT NULL  AUTO_INCREMENT,",
+            "`username` varchar(40) NOT NULL,",
+            "`passwordhash` varchar(256) NOT NULL, ",
+            " constraint pk_users PRIMARY KEY (id)",
+            ") ENGINE=InnoDB DEFAULT CHARSET=latin1; "
+        ]
+    },
+    {
+        "command" : "Create books table",
+        "order": 1001,
+        "sql" : [
+            "CREATE TABLE `books` (",
+            "`id` int(11) NOT NULL AUTO_INCREMENT,",
+            "`title` varchar(256) NOT NULL,",
+            " constraint pk_books PRIMARY KEY (id));"
+        ]
+    },
+    {
+        "command" : "Create user_books table",
+        "order": 1002,
+        "sql" : [
+            "CREATE TABLE `user_books` (",
+            "`user` int(11) NOT NULL,",
+            "`book` int(11) NOT NULL,",
+            "`date` long, ",
+            " constraint pk_user_books PRIMARY KEY (user, book));"
+        ]
+    }
+
+]
